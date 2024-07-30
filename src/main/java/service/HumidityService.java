@@ -11,26 +11,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class HumidityService {
 
-    private final HumidityDomain test;
+    private final HumidityDomain humidityDomain;
 
     @Autowired
-    public HumidityService(HumidityDomain test) {
-        this.test = test;
+    public HumidityService(HumidityDomain humidity) {
+        this.humidityDomain = humidity;
     }
 
     public float getTemperature() {
-        return test.getTemperature();
+        return humidityDomain.getTemperature();
     }
 
     public void setTemperature(float temperature) {
-        test.setTemperature(temperature);
+        humidityDomain.setTemperature(temperature);
     }
 
     public float getHumidity() {
-        return test.getHumidity();
+        return humidityDomain.getHumidity();
     }
 
     public void setHumidity(float humidity) {
-        test.setHumidity(humidity);
+        humidityDomain.setHumidity(humidity);
     }
 }

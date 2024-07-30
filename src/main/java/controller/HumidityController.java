@@ -9,17 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Controller
 public class HumidityController {
 
-    private final HumidityService testService;
+    private final HumidityService humidityService;
 
     @Autowired
-    public HumidityController(HumidityService testService) {
-        this.testService = testService;
+    public HumidityController(HumidityService humidityService) {
+        this.humidityService = humidityService;
     }
 
     @GetMapping("/test")
     public String test(Model model) {
-        model.addAttribute("temperature", testService.getTemperature());
-        model.addAttribute("humidity", testService.getHumidity());
+        model.addAttribute("temperature", humidityService.getTemperature());
+        model.addAttribute("humidity", humidityService.getHumidity());
         return "test";
     }
 
