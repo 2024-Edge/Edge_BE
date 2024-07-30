@@ -5,21 +5,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import service.BrightnessService;
+import service.HumidityService;
 
 @Controller
-public class BrightnessController {
+public class SetController {
 
     private final BrightnessService brightnessService;
+    private final HumidityService humidityService;
 
     @Autowired
-    public BrightnessController(BrightnessService brightnessService) {
+    public SetController(BrightnessService brightnessService, HumidityService humidityService) {
         this.brightnessService = brightnessService;
+        this.humidityService = humidityService;
     }
 
     @GetMapping("/test")
     public String test(Model model) {
         model.addAttribute("brightness", brightnessService.getBrightness());
+
+        model.addAttribute("temperature", humidityService.getTemperature());
+        model.addAttribute("humidity", humidityService.getHumidity());
+
         return "test";
     }
-
 }
