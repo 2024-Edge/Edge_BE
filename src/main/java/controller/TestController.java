@@ -20,6 +20,7 @@ public class TestController {
     public String test(Model model) {
         model.addAttribute("temperature", testService.getTemperature());
         model.addAttribute("humidity", testService.getHumidity());
+        model.addAttribute("illuminance", testService.getHumidity());
         return "test";
     }
 
